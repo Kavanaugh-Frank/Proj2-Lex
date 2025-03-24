@@ -40,6 +40,7 @@ NUMERIC [0-9]+
 #define CLOSE_BRACKET "]"
 #define COLON ":"
 #define IN "in"
+#define COMMA ","
 
 %}
 
@@ -62,6 +63,7 @@ NUMERIC [0-9]+
 ":"                         { fprintf(yyout, "%s\n", COLON);}
 ";"                         { fprintf(yyout, "%s\n", SEMI_COLON); }
 "+"                         { fprintf(yyout, "%s\n", PLUS); }
+","                         { fprintf(yyout, "%s\n", COMMA);}
 .                           {/* Ignore the rest */}
 
 
