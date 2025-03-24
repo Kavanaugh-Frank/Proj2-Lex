@@ -1,0 +1,66 @@
+buildnode
+{
+name
+=
+ALPHANUMERIC_LITERAL: "root"
++
+ALPHANUMERIC_VARIABLE: i
+;
+weight
+=
+NUMERIC: 10
++
+ALPHANUMERIC_VARIABLE: i
++
+NUMERIC: 1
+;
+isachildof
+=
+ALPHANUMERIC_LITERAL: "test"
+;
+}
+;
+buildnode
+{
+name
+=
+ALPHANUMERIC_LITERAL: "root"
+;
+weight
+=
+NUMERIC: 10
+;
+}
+;
+for
+ALPHANUMERIC_VARIABLE: i
+in
+[
+NUMERIC: 1
+:
+NUMERIC: 10
+]
+{
+buildnode
+{
+name
+=
+ALPHANUMERIC_LITERAL: "A"
++
+ALPHANUMERIC_VARIABLE: i
+;
+weight
+=
+NUMERIC: 3
++
+ALPHANUMERIC_VARIABLE: i
++
+NUMERIC: 1
+;
+isachildof
+=
+ALPHANUMERIC_LITERAL: "root"
+;
+}
+;
+}

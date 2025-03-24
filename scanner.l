@@ -15,26 +15,54 @@ extern "C" int yywrap(void) {
     return 1;
 }
 
-#define NODE 1
-#define ROOT_NODE 2
+
+%}
+
+ALPHANUMERIC_LITERAL \"[a-zA-Z0-9_-]+\"
+ALPHANUMERIC_VARIABLE [a-zA-Z0-9_-]+
+NUMERIC [0-9]+
+
+%{
+#define BUILDNODE "buildnode"
+#define NAME "name"
+#define WEIGHT "weight"
+#define ISACHILDOF "isachildof"
+#define EQUALS "="
+#define ALPHANUMERIC_LITERAL "ALPHANUMERIC_LITERAL"
+#define ALPHANUMERIC_VARIABLE "ALPHANUMERIC_VARIABLE"
+#define NUMERIC "NUMERIC"
+#define OPEN_BRACE "{"
+#define CLOSE_BRACE "}"
+#define SEMI_COLON ";"
+#define PLUS "+"
+#define FOR_LOOP "for"
+#define OPEN_BRACKET "["
+#define CLOSE_BRACKET "]"
+#define COLON ":"
+#define IN "in"
 
 %}
 
 %%
-[ \t\n]+                        { /* Ignore whitespace */ }
-{/* "buildnode"[ \t\n]*"{"[ \t\n]*"name"[ \t\n]*=[ \t\n]*\"([a-zA-Z0-9_-]+)\"[ \t\n]*";"[ \t\n]*"weight"[ \t\n]*=[ \t\n]*([0-9]+)[ \t\n]*";"[ \t\n]*"}"[ \t\n]*";"  {
-    char name[100];
-    int weight;
-    sscanf(yytext, "buildnode { name = \"%99[a-zA-Z0-9_-]\" ; weight = %d ; } ;", name, &weight);
-    fprintf(yyout, "%03d Name: %s, Weight: %d\n", ROOT_NODE, name, weight);
-}
-"buildnode"[ \t\n]*"{"[ \t\n]*"name"[ \t\n]*=[ \t\n]*\"([a-zA-Z0-9_-]+)\"[ \t\n]*";"[ \t\n]*"weight"[ \t\n]*=[ \t\n]*([0-9]+)[ \t\n]*";"[ \t\n]*"isachildof"[ \t\n]*=[ \t\n]*\"([a-zA-Z0-9_-]+)\"[ \t\n]*";"[ \t\n]*"}"[ \t\n]*";"  {
-    char name[100], parent[100];
-    int weight;
-    sscanf(yytext, "buildnode { name = \"%99[a-zA-Z0-9_-]\" ; weight = %d ; isachildof = \"%99[a-zA-Z0-9_-]\" ; } ;", name, &weight, parent);
-    fprintf(yyout, "%03d Name: %s, Weight: %d, Parent: %s\n", NODE, name, weight, parent); }
-*/}
-.   {/* Ignore the rest */}
+[ \t\n]+                    { /*Ignore*/ }
+"buildnode"                 { fprintf(yyout, "%s\n", BUILDNODE); }
+"name"                      { fprintf(yyout, "%s\n", NAME); }
+"weight"                    { fprintf(yyout, "%s\n", WEIGHT); }
+"isachildof"                { fprintf(yyout, "%s\n", ISACHILDOF); }
+"for"                       { fprintf(yyout, "%s\n", FOR_LOOP); }
+"in"                        { fprintf(yyout, "%s\n", IN);}
+{NUMERIC}                   { fprintf(yyout, "%s: %s\n", NUMERIC, yytext); }
+{ALPHANUMERIC_VARIABLE}     { fprintf(yyout, "%s: %s\n", ALPHANUMERIC_VARIABLE, yytext); }
+{ALPHANUMERIC_LITERAL}      { fprintf(yyout, "%s: %s\n", ALPHANUMERIC_LITERAL, yytext); }
+"="                         { fprintf(yyout, "%s\n", EQUALS); }
+"{"                         { fprintf(yyout, "%s\n", OPEN_BRACE); }
+"}"                         { fprintf(yyout, "%s\n", CLOSE_BRACE); }
+"["                         { fprintf(yyout, "%s\n", OPEN_BRACKET);}
+"]"                         { fprintf(yyout, "%s\n", CLOSE_BRACKET);}
+":"                         { fprintf(yyout, "%s\n", COLON);}
+";"                         { fprintf(yyout, "%s\n", SEMI_COLON); }
+"+"                         { fprintf(yyout, "%s\n", PLUS); }
+.                           {/* Ignore the rest */}
 
 
 %%
