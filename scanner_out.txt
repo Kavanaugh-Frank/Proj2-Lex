@@ -1,10 +1,125 @@
+buildnode
+{
+name
+=
+ALPHANUMERIC_LITERAL: "root"
+;
+weight
+=
+NUMERIC: 10
+;
+}
+;
 for
-ALPHANUMERIC_VARIABLE: var
+ALPHANUMERIC_VARIABLE: i
 in
 [
-ALPHANUMERIC_VARIABLE: s1
-,
-ALPHANUMERIC_VARIABLE: s2
-,
-ALPHANUMERIC_VARIABLE: s3
+NUMERIC: 1
+:
+NUMERIC: 10
 ]
+{
+buildnode
+{
+name
+=
+ALPHANUMERIC_LITERAL: "A"
++
+ALPHANUMERIC_VARIABLE: i
+;
+weight
+=
+NUMERIC: 3
++
+ALPHANUMERIC_VARIABLE: i
++
+NUMERIC: 1
+;
+isachildof
+=
+ALPHANUMERIC_LITERAL: "root"
+;
+}
+;
+}
+for
+ALPHANUMERIC_VARIABLE: i
+in
+[
+NUMERIC: 1
+:
+NUMERIC: 5
+]
+{
+buildnode
+{
+name
+=
+ALPHANUMERIC_LITERAL: "B"
++
+ALPHANUMERIC_VARIABLE: i
+;
+weight
+=
+NUMERIC: 3
+;
+isachildof
+=
+ALPHANUMERIC_LITERAL: "A"
++
+ALPHANUMERIC_VARIABLE: i
+;
+}
+;
+}
+for
+ALPHANUMERIC_VARIABLE: i
+in
+[
+NUMERIC: 1
+:
+NUMERIC: 5
+]
+{
+buildnode
+{
+name
+=
+ALPHANUMERIC_LITERAL: "C"
++
+ALPHANUMERIC_VARIABLE: i
+;
+weight
+=
+NUMERIC: 3
+;
+isachildof
+=
+ALPHANUMERIC_LITERAL: "B"
++
+ALPHANUMERIC_VARIABLE: i
+;
+}
+;
+buildnode
+{
+name
+=
+ALPHANUMERIC_LITERAL: "D"
++
+ALPHANUMERIC_VARIABLE: i
+;
+weight
+=
+NUMERIC: 1
+;
+isachildof
+=
+ALPHANUMERIC_LITERAL: "B"
++
+ALPHANUMERIC_VARIABLE: i
+;
+}
+;
+}
+;
