@@ -8,14 +8,9 @@
 
 extern FILE *yyout;
 
-void yyerror(const char *s,...);
-void yywarn(const char *s,...);
-
 extern "C" int yywrap(void) {
     return 1;
 }
-
-
 %}
 
 ALPHANUMERIC_LITERAL \"[a-zA-Z0-9_-]+\"
@@ -55,6 +50,11 @@ NUMERIC [0-9]+
 {NUMERIC}                   { fprintf(yyout, "%s: %s\n", NUMERIC, yytext); }
 {ALPHANUMERIC_VARIABLE}     { fprintf(yyout, "%s: %s\n", ALPHANUMERIC_VARIABLE, yytext); }
 {ALPHANUMERIC_LITERAL}      { fprintf(yyout, "%s: %s\n", ALPHANUMERIC_LITERAL, yytext); }
+    /*
+        Everything below here will be passed to YACC verbatim in the next step
+        For now we are "tokenizing" it by identifying it and then making the token
+            the individual symbol.
+    */
 "="                         { fprintf(yyout, "%s\n", EQUALS); }
 "{"                         { fprintf(yyout, "%s\n", OPEN_BRACE); }
 "}"                         { fprintf(yyout, "%s\n", CLOSE_BRACE); }

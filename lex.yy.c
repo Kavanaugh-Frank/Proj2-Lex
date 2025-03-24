@@ -487,8 +487,8 @@ char *yytext;
 
 extern FILE *yyout;
 
-void yyerror(const char *s,...);
-void yywarn(const char *s,...);
+// void yyerror(const char *s,...);
+// void yywarn(const char *s,...);
 
 extern "C" int yywrap(void) {
     return 1;
@@ -844,62 +844,67 @@ YY_RULE_SETUP
 #line 57 "scanner.l"
 { fprintf(yyout, "%s: %s\n", ALPHANUMERIC_LITERAL, yytext); }
 	YY_BREAK
+/*
+        Everything below here will be passed to YACC verbatim in the next step
+        For now we are "tokenizing" it by identifying it and then making the token
+            the individual symbol.
+    */
 case 11:
 YY_RULE_SETUP
-#line 58 "scanner.l"
+#line 63 "scanner.l"
 { fprintf(yyout, "%s\n", EQUALS); }
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 59 "scanner.l"
+#line 64 "scanner.l"
 { fprintf(yyout, "%s\n", OPEN_BRACE); }
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 60 "scanner.l"
+#line 65 "scanner.l"
 { fprintf(yyout, "%s\n", CLOSE_BRACE); }
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 61 "scanner.l"
+#line 66 "scanner.l"
 { fprintf(yyout, "%s\n", OPEN_BRACKET);}
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 62 "scanner.l"
+#line 67 "scanner.l"
 { fprintf(yyout, "%s\n", CLOSE_BRACKET);}
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
-#line 63 "scanner.l"
+#line 68 "scanner.l"
 { fprintf(yyout, "%s\n", COLON);}
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
-#line 64 "scanner.l"
+#line 69 "scanner.l"
 { fprintf(yyout, "%s\n", SEMI_COLON); }
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
-#line 65 "scanner.l"
+#line 70 "scanner.l"
 { fprintf(yyout, "%s\n", PLUS); }
 	YY_BREAK
 case 19:
 YY_RULE_SETUP
-#line 66 "scanner.l"
+#line 71 "scanner.l"
 { fprintf(yyout, "%s\n", COMMA);}
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
-#line 67 "scanner.l"
+#line 72 "scanner.l"
 {/* Ignore the rest */}
 	YY_BREAK
 case 21:
 YY_RULE_SETUP
-#line 70 "scanner.l"
+#line 75 "scanner.l"
 ECHO;
 	YY_BREAK
-#line 902 "lex.yy.c"
+#line 907 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1904,7 +1909,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 70 "scanner.l"
+#line 75 "scanner.l"
 
 
 int main(int argc, char **argv) {
