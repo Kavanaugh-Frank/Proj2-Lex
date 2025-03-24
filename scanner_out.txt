@@ -1,125 +1,125 @@
-buildnode
-{
-name
-=
-ALPHANUMERIC_LITERAL: "root"
-;
-weight
-=
-NUMERIC: 10
-;
-}
-;
-for
-ALPHANUMERIC_VARIABLE: i
-in
-[
-NUMERIC: 1
-:
-NUMERIC: 10
-]
-{
-buildnode
-{
-name
-=
-ALPHANUMERIC_LITERAL: "A"
-+
-ALPHANUMERIC_VARIABLE: i
-;
-weight
-=
-NUMERIC: 3
-+
-ALPHANUMERIC_VARIABLE: i
-+
-NUMERIC: 1
-;
-isachildof
-=
-ALPHANUMERIC_LITERAL: "root"
-;
-}
-;
-}
-for
-ALPHANUMERIC_VARIABLE: i
-in
-[
-NUMERIC: 1
-:
-NUMERIC: 5
-]
-{
-buildnode
-{
-name
-=
-ALPHANUMERIC_LITERAL: "B"
-+
-ALPHANUMERIC_VARIABLE: i
-;
-weight
-=
-NUMERIC: 3
-;
-isachildof
-=
-ALPHANUMERIC_LITERAL: "A"
-+
-ALPHANUMERIC_VARIABLE: i
-;
-}
-;
-}
-for
-ALPHANUMERIC_VARIABLE: i
-in
-[
-NUMERIC: 1
-:
-NUMERIC: 5
-]
-{
-buildnode
-{
-name
-=
-ALPHANUMERIC_LITERAL: "C"
-+
-ALPHANUMERIC_VARIABLE: i
-;
-weight
-=
-NUMERIC: 3
-;
-isachildof
-=
-ALPHANUMERIC_LITERAL: "B"
-+
-ALPHANUMERIC_VARIABLE: i
-;
-}
-;
-buildnode
-{
-name
-=
-ALPHANUMERIC_LITERAL: "D"
-+
-ALPHANUMERIC_VARIABLE: i
-;
-weight
-=
-NUMERIC: 1
-;
-isachildof
-=
-ALPHANUMERIC_LITERAL: "B"
-+
-ALPHANUMERIC_VARIABLE: i
-;
-}
-;
-}
-;
+< RESERVED WORD: buildnode >
+< SYMBOL: { >
+< RESERVED WORD: name >
+< SYMBOL: = >
+< ALPHANUMERIC_LITERAL: "root" >
+< SYMBOL: ; >
+< RESERVED WORD: weight >
+< SYMBOL: = >
+< NUMERIC_LITERAL: 10 >
+< SYMBOL: ; >
+< SYMBOL: } >
+< SYMBOL: ; >
+< RESERVED WORD: for >
+< ALPHANUMERIC_VARIABLE: i >
+< RESERVED WORD: in >
+< SYMBOL: [ >
+< NUMERIC_LITERAL: 1 >
+< SYMBOL: : >
+< NUMERIC_LITERAL: 10 >
+< SYMBOL: ] >
+< SYMBOL: { >
+< RESERVED WORD: buildnode >
+< SYMBOL: { >
+< RESERVED WORD: name >
+< SYMBOL: = >
+< ALPHANUMERIC_LITERAL: "A" >
+< SYMBOL: + >
+< ALPHANUMERIC_VARIABLE: i >
+< SYMBOL: ; >
+< RESERVED WORD: weight >
+< SYMBOL: = >
+< NUMERIC_LITERAL: 3 >
+< SYMBOL: + >
+< ALPHANUMERIC_VARIABLE: i >
+< SYMBOL: + >
+< NUMERIC_LITERAL: 1 >
+< SYMBOL: ; >
+< RESERVED WORD: isachildof >
+< SYMBOL: = >
+< ALPHANUMERIC_LITERAL: "root" >
+< SYMBOL: ; >
+< SYMBOL: } >
+< SYMBOL: ; >
+< SYMBOL: } >
+< RESERVED WORD: for >
+< ALPHANUMERIC_VARIABLE: i >
+< RESERVED WORD: in >
+< SYMBOL: [ >
+< NUMERIC_LITERAL: 1 >
+< SYMBOL: : >
+< NUMERIC_LITERAL: 5 >
+< SYMBOL: ] >
+< SYMBOL: { >
+< RESERVED WORD: buildnode >
+< SYMBOL: { >
+< RESERVED WORD: name >
+< SYMBOL: = >
+< ALPHANUMERIC_LITERAL: "B" >
+< SYMBOL: + >
+< ALPHANUMERIC_VARIABLE: i >
+< SYMBOL: ; >
+< RESERVED WORD: weight >
+< SYMBOL: = >
+< NUMERIC_LITERAL: 3 >
+< SYMBOL: ; >
+< RESERVED WORD: isachildof >
+< SYMBOL: = >
+< ALPHANUMERIC_LITERAL: "A" >
+< SYMBOL: + >
+< ALPHANUMERIC_VARIABLE: i >
+< SYMBOL: ; >
+< SYMBOL: } >
+< SYMBOL: ; >
+< SYMBOL: } >
+< RESERVED WORD: for >
+< ALPHANUMERIC_VARIABLE: i >
+< RESERVED WORD: in >
+< SYMBOL: [ >
+< NUMERIC_LITERAL: 1 >
+< SYMBOL: : >
+< NUMERIC_LITERAL: 5 >
+< SYMBOL: ] >
+< SYMBOL: { >
+< RESERVED WORD: buildnode >
+< SYMBOL: { >
+< RESERVED WORD: name >
+< SYMBOL: = >
+< ALPHANUMERIC_LITERAL: "C" >
+< SYMBOL: + >
+< ALPHANUMERIC_VARIABLE: i >
+< SYMBOL: ; >
+< RESERVED WORD: weight >
+< SYMBOL: = >
+< NUMERIC_LITERAL: 3 >
+< SYMBOL: ; >
+< RESERVED WORD: isachildof >
+< SYMBOL: = >
+< ALPHANUMERIC_LITERAL: "B" >
+< SYMBOL: + >
+< ALPHANUMERIC_VARIABLE: i >
+< SYMBOL: ; >
+< SYMBOL: } >
+< SYMBOL: ; >
+< RESERVED WORD: buildnode >
+< SYMBOL: { >
+< RESERVED WORD: name >
+< SYMBOL: = >
+< ALPHANUMERIC_LITERAL: "D" >
+< SYMBOL: + >
+< ALPHANUMERIC_VARIABLE: i >
+< SYMBOL: ; >
+< RESERVED WORD: weight >
+< SYMBOL: = >
+< NUMERIC_LITERAL: 1 >
+< SYMBOL: ; >
+< RESERVED WORD: isachildof >
+< SYMBOL: = >
+< ALPHANUMERIC_LITERAL: "B" >
+< SYMBOL: + >
+< ALPHANUMERIC_VARIABLE: i >
+< SYMBOL: ; >
+< SYMBOL: } >
+< SYMBOL: ; >
+< SYMBOL: } >
+< SYMBOL: ; >

@@ -25,45 +25,38 @@ NUMERIC [0-9]+
 #define EQUALS "="
 #define ALPHANUMERIC_LITERAL "ALPHANUMERIC_LITERAL"
 #define ALPHANUMERIC_VARIABLE "ALPHANUMERIC_VARIABLE"
-#define NUMERIC "NUMERIC"
-#define OPEN_BRACE "{"
-#define CLOSE_BRACE "}"
-#define SEMI_COLON ";"
-#define PLUS "+"
+#define NUMERIC "NUMERIC_LITERAL"
 #define FOR_LOOP "for"
-#define OPEN_BRACKET "["
-#define CLOSE_BRACKET "]"
-#define COLON ":"
 #define IN "in"
-#define COMMA ","
+#define SYMBOL "SYMBOL"
 
 %}
 
 %%
 [ \t\n]+                    { /*Ignore*/ }
-"buildnode"                 { fprintf(yyout, "%s\n", BUILDNODE); }
-"name"                      { fprintf(yyout, "%s\n", NAME); }
-"weight"                    { fprintf(yyout, "%s\n", WEIGHT); }
-"isachildof"                { fprintf(yyout, "%s\n", ISACHILDOF); }
-"for"                       { fprintf(yyout, "%s\n", FOR_LOOP); }
-"in"                        { fprintf(yyout, "%s\n", IN);}
-{NUMERIC}                   { fprintf(yyout, "%s: %s\n", NUMERIC, yytext); }
-{ALPHANUMERIC_VARIABLE}     { fprintf(yyout, "%s: %s\n", ALPHANUMERIC_VARIABLE, yytext); }
-{ALPHANUMERIC_LITERAL}      { fprintf(yyout, "%s: %s\n", ALPHANUMERIC_LITERAL, yytext); }
+"buildnode"                 { fprintf(yyout, "< RESERVED WORD: %s >\n", BUILDNODE); }
+"name"                      { fprintf(yyout, "< RESERVED WORD: %s >\n", NAME); }
+"weight"                    { fprintf(yyout, "< RESERVED WORD: %s >\n", WEIGHT); }
+"isachildof"                { fprintf(yyout, "< RESERVED WORD: %s >\n", ISACHILDOF); }
+"for"                       { fprintf(yyout, "< RESERVED WORD: %s >\n", FOR_LOOP); }
+"in"                        { fprintf(yyout, "< RESERVED WORD: %s >\n", IN); }
+{NUMERIC}                   { fprintf(yyout, "< %s: %s >\n", NUMERIC, yytext); }
+{ALPHANUMERIC_VARIABLE}     { fprintf(yyout, "< %s: %s >\n", ALPHANUMERIC_VARIABLE, yytext); }
+{ALPHANUMERIC_LITERAL}      { fprintf(yyout, "< %s: %s >\n", ALPHANUMERIC_LITERAL, yytext); }
     /*
         Everything below here will be passed to YACC verbatim in the next step
         For now we are "tokenizing" it by identifying it and then making the token
             the individual symbol.
     */
-"="                         { fprintf(yyout, "%s\n", EQUALS); }
-"{"                         { fprintf(yyout, "%s\n", OPEN_BRACE); }
-"}"                         { fprintf(yyout, "%s\n", CLOSE_BRACE); }
-"["                         { fprintf(yyout, "%s\n", OPEN_BRACKET);}
-"]"                         { fprintf(yyout, "%s\n", CLOSE_BRACKET);}
-":"                         { fprintf(yyout, "%s\n", COLON);}
-";"                         { fprintf(yyout, "%s\n", SEMI_COLON); }
-"+"                         { fprintf(yyout, "%s\n", PLUS); }
-","                         { fprintf(yyout, "%s\n", COMMA);}
+"="                         { fprintf(yyout, "< %s: %s >\n", SYMBOL, yytext); }
+"{"                         { fprintf(yyout, "< %s: %s >\n", SYMBOL, yytext); }
+"}"                         { fprintf(yyout, "< %s: %s >\n", SYMBOL, yytext); }
+"["                         { fprintf(yyout, "< %s: %s >\n", SYMBOL, yytext); }
+"]"                         { fprintf(yyout, "< %s: %s >\n", SYMBOL, yytext); }
+":"                         { fprintf(yyout, "< %s: %s >\n", SYMBOL, yytext); }
+";"                         { fprintf(yyout, "< %s: %s >\n", SYMBOL, yytext); }
+"+"                         { fprintf(yyout, "< %s: %s >\n", SYMBOL, yytext); }
+","                         { fprintf(yyout, "< %s: %s >\n", SYMBOL, yytext); }
 .                           {/* Ignore the rest */}
 
 

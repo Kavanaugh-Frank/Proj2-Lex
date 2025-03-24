@@ -487,16 +487,11 @@ char *yytext;
 
 extern FILE *yyout;
 
-// void yyerror(const char *s,...);
-// void yywarn(const char *s,...);
-
 extern "C" int yywrap(void) {
     return 1;
 }
-
-
-#line 498 "lex.yy.c"
-#line 26 "scanner.l"
+#line 493 "lex.yy.c"
+#line 21 "scanner.l"
 #define BUILDNODE "buildnode"
 #define NAME "name"
 #define WEIGHT "weight"
@@ -504,20 +499,13 @@ extern "C" int yywrap(void) {
 #define EQUALS "="
 #define ALPHANUMERIC_LITERAL "ALPHANUMERIC_LITERAL"
 #define ALPHANUMERIC_VARIABLE "ALPHANUMERIC_VARIABLE"
-#define NUMERIC "NUMERIC"
-#define OPEN_BRACE "{"
-#define CLOSE_BRACE "}"
-#define SEMI_COLON ";"
-#define PLUS "+"
+#define NUMERIC "NUMERIC_LITERAL"
 #define FOR_LOOP "for"
-#define OPEN_BRACKET "["
-#define CLOSE_BRACKET "]"
-#define COLON ":"
 #define IN "in"
-#define COMMA ","
+#define SYMBOL "SYMBOL"
 
-#line 519 "lex.yy.c"
-#line 520 "lex.yy.c"
+#line 507 "lex.yy.c"
+#line 508 "lex.yy.c"
 
 #define INITIAL 0
 
@@ -734,9 +722,9 @@ YY_DECL
 		}
 
 	{
-#line 47 "scanner.l"
+#line 35 "scanner.l"
 
-#line 739 "lex.yy.c"
+#line 727 "lex.yy.c"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -796,53 +784,53 @@ do_action:	/* This label is used only to access EOF actions. */
 case 1:
 /* rule 1 can match eol */
 YY_RULE_SETUP
-#line 48 "scanner.l"
+#line 36 "scanner.l"
 { /*Ignore*/ }
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 49 "scanner.l"
-{ fprintf(yyout, "%s\n", BUILDNODE); }
+#line 37 "scanner.l"
+{ fprintf(yyout, "< RESERVED WORD: %s >\n", BUILDNODE); }
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 50 "scanner.l"
-{ fprintf(yyout, "%s\n", NAME); }
+#line 38 "scanner.l"
+{ fprintf(yyout, "< RESERVED WORD: %s >\n", NAME); }
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 51 "scanner.l"
-{ fprintf(yyout, "%s\n", WEIGHT); }
+#line 39 "scanner.l"
+{ fprintf(yyout, "< RESERVED WORD: %s >\n", WEIGHT); }
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 52 "scanner.l"
-{ fprintf(yyout, "%s\n", ISACHILDOF); }
+#line 40 "scanner.l"
+{ fprintf(yyout, "< RESERVED WORD: %s >\n", ISACHILDOF); }
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 53 "scanner.l"
-{ fprintf(yyout, "%s\n", FOR_LOOP); }
+#line 41 "scanner.l"
+{ fprintf(yyout, "< RESERVED WORD: %s >\n", FOR_LOOP); }
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 54 "scanner.l"
-{ fprintf(yyout, "%s\n", IN);}
+#line 42 "scanner.l"
+{ fprintf(yyout, "< RESERVED WORD: %s >\n", IN); }
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 55 "scanner.l"
-{ fprintf(yyout, "%s: %s\n", NUMERIC, yytext); }
+#line 43 "scanner.l"
+{ fprintf(yyout, "< %s: %s >\n", NUMERIC, yytext); }
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 56 "scanner.l"
-{ fprintf(yyout, "%s: %s\n", ALPHANUMERIC_VARIABLE, yytext); }
+#line 44 "scanner.l"
+{ fprintf(yyout, "< %s: %s >\n", ALPHANUMERIC_VARIABLE, yytext); }
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 57 "scanner.l"
-{ fprintf(yyout, "%s: %s\n", ALPHANUMERIC_LITERAL, yytext); }
+#line 45 "scanner.l"
+{ fprintf(yyout, "< %s: %s >\n", ALPHANUMERIC_LITERAL, yytext); }
 	YY_BREAK
 /*
         Everything below here will be passed to YACC verbatim in the next step
@@ -851,60 +839,60 @@ YY_RULE_SETUP
     */
 case 11:
 YY_RULE_SETUP
-#line 63 "scanner.l"
-{ fprintf(yyout, "%s\n", EQUALS); }
+#line 51 "scanner.l"
+{ fprintf(yyout, "< %s: %s >\n", SYMBOL, yytext); }
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 64 "scanner.l"
-{ fprintf(yyout, "%s\n", OPEN_BRACE); }
+#line 52 "scanner.l"
+{ fprintf(yyout, "< %s: %s >\n", SYMBOL, yytext); }
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 65 "scanner.l"
-{ fprintf(yyout, "%s\n", CLOSE_BRACE); }
+#line 53 "scanner.l"
+{ fprintf(yyout, "< %s: %s >\n", SYMBOL, yytext); }
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 66 "scanner.l"
-{ fprintf(yyout, "%s\n", OPEN_BRACKET);}
+#line 54 "scanner.l"
+{ fprintf(yyout, "< %s: %s >\n", SYMBOL, yytext); }
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 67 "scanner.l"
-{ fprintf(yyout, "%s\n", CLOSE_BRACKET);}
+#line 55 "scanner.l"
+{ fprintf(yyout, "< %s: %s >\n", SYMBOL, yytext); }
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
-#line 68 "scanner.l"
-{ fprintf(yyout, "%s\n", COLON);}
+#line 56 "scanner.l"
+{ fprintf(yyout, "< %s: %s >\n", SYMBOL, yytext); }
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
-#line 69 "scanner.l"
-{ fprintf(yyout, "%s\n", SEMI_COLON); }
+#line 57 "scanner.l"
+{ fprintf(yyout, "< %s: %s >\n", SYMBOL, yytext); }
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
-#line 70 "scanner.l"
-{ fprintf(yyout, "%s\n", PLUS); }
+#line 58 "scanner.l"
+{ fprintf(yyout, "< %s: %s >\n", SYMBOL, yytext); }
 	YY_BREAK
 case 19:
 YY_RULE_SETUP
-#line 71 "scanner.l"
-{ fprintf(yyout, "%s\n", COMMA);}
+#line 59 "scanner.l"
+{ fprintf(yyout, "< %s: %s >\n", SYMBOL, yytext); }
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
-#line 72 "scanner.l"
+#line 60 "scanner.l"
 {/* Ignore the rest */}
 	YY_BREAK
 case 21:
 YY_RULE_SETUP
-#line 75 "scanner.l"
+#line 63 "scanner.l"
 ECHO;
 	YY_BREAK
-#line 907 "lex.yy.c"
+#line 895 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1909,7 +1897,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 75 "scanner.l"
+#line 63 "scanner.l"
 
 
 int main(int argc, char **argv) {
