@@ -28,6 +28,7 @@ NUMERIC [0-9]+
 #define NUMERIC "NUMERIC_LITERAL"
 #define FOR_LOOP "for"
 #define IN "in"
+#define PRINT "print"
 #define SYMBOL "SYMBOL"
 
 %}
@@ -40,6 +41,7 @@ NUMERIC [0-9]+
 "isachildof"                { fprintf(yyout, "< RESERVED WORD: %s >\n", ISACHILDOF); }
 "for"                       { fprintf(yyout, "< RESERVED WORD: %s >\n", FOR_LOOP); }
 "in"                        { fprintf(yyout, "< RESERVED WORD: %s >\n", IN); }
+"print"                     { fprintf(yyout, "< RESERVED WORD: %s >\n", PRINT); }
 {NUMERIC}                   { fprintf(yyout, "< %s: %s >\n", NUMERIC, yytext); }
 {ALPHANUMERIC_VARIABLE}     { fprintf(yyout, "< %s: %s >\n", ALPHANUMERIC_VARIABLE, yytext); }
 {ALPHANUMERIC_LITERAL}      { fprintf(yyout, "< %s: %s >\n", ALPHANUMERIC_LITERAL, yytext); }
@@ -53,6 +55,8 @@ NUMERIC [0-9]+
 "}"                         { fprintf(yyout, "< %s: %s >\n", SYMBOL, yytext); }
 "["                         { fprintf(yyout, "< %s: %s >\n", SYMBOL, yytext); }
 "]"                         { fprintf(yyout, "< %s: %s >\n", SYMBOL, yytext); }
+"("                         { fprintf(yyout, "< %s: %s >\n", SYMBOL, yytext); }
+")"                         { fprintf(yyout, "< %s: %s >\n", SYMBOL, yytext); }
 ":"                         { fprintf(yyout, "< %s: %s >\n", SYMBOL, yytext); }
 ";"                         { fprintf(yyout, "< %s: %s >\n", SYMBOL, yytext); }
 "+"                         { fprintf(yyout, "< %s: %s >\n", SYMBOL, yytext); }

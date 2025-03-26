@@ -8,14 +8,14 @@ name = "A"+i;
 weight = 3+i+1;
 isachildof = "root";
 };
-}
+};
 for i in [1:5] {
 buildnode {
 name = "B"+i;
 weight = 3;
 isachildof ="A"+i;
 };
-}
+};
 for i in [1:5] {
 buildnode {
 name = "C"+i;
@@ -28,3 +28,4 @@ weight = 1;
 isachildof = "B"+i;
 };
 };
+print("root" + i)

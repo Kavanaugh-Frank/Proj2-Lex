@@ -42,6 +42,7 @@
 < SYMBOL: } >
 < SYMBOL: ; >
 < SYMBOL: } >
+< SYMBOL: ; >
 < RESERVED WORD: for >
 < ALPHANUMERIC_VARIABLE: i >
 < RESERVED WORD: in >
@@ -72,6 +73,7 @@
 < SYMBOL: } >
 < SYMBOL: ; >
 < SYMBOL: } >
+< SYMBOL: ; >
 < RESERVED WORD: for >
 < ALPHANUMERIC_VARIABLE: i >
 < RESERVED WORD: in >
@@ -123,3 +125,9 @@
 < SYMBOL: ; >
 < SYMBOL: } >
 < SYMBOL: ; >
+< RESERVED WORD: print >
+< SYMBOL: ( >
+< ALPHANUMERIC_LITERAL: "root" >
+< SYMBOL: + >
+< ALPHANUMERIC_VARIABLE: i >
+< SYMBOL: ) >
